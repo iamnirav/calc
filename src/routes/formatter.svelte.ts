@@ -3,7 +3,7 @@ const formatters: [RegExp | string, string][] = [
   [/#.*$/, 'i.comment'],
   [/#/, 'i.hash'],
   [/[()]/, 'i.paren'],
-  [/[\D]/, 'i.text'],
+  [/(?<!<[^>]*)[a-zA-Z]+(?![^<]*>)/, 'i.text'], // match text that is not inside tags
 ]
 
 export function formatExpression(expression: string) {
